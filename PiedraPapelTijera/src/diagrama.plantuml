@@ -1,0 +1,56 @@
+@startuml Hello world
+!theme toy
+
++class Game{
+    -Parser:parser
+    +Game()
+    -welcome():void
+    -printHelp():void
+    -computerMove():Move
+    -printWinner():void
+    -printMoves(Move player, Move computer):void
+    -processMove(Move move):boolean
+    +playGame():void
+    +{static} main(String[] args):void
+
+}
+
++class Parser{
+-MoveWords:moves
+-Scanner:read
++Parser()
++showCommands():void
++newRandomeMove():move
++getMove():move
+
+}
+
++class MoveWords{
++{static} final empate:int=3
++{static} final gana:int=1
++{static} final pierde = 2
+-Random rnd
+-{static} final validMoves[]:String
++MoveWords()
++isValidMoveCommand(String value):boolean
++randomMove():String
++showMoves():void
++showCommands():void
++showWords():void
+-{static} getIndex(String value):int
++{static} checkWinner(String first, String second):int
+
+}
+
++class Move{
+
+-String move
++Move()
++Move(String move)
++getMove:String
++isUnKnown():boolean
++beats(Move other):int
+
+}
+
+@enduml
